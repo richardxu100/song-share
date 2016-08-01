@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
+import AccountsUIContainer from '../containers/AccountsUIContainer';
 
 const Navbar = (props) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo center">Logo</a>
+        <a href="#" className="brand-logo center">{props.title}</a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><a href="sass.html">Login</a></li>
+          <li><AccountsUIContainer align="right"/></li>
         </ul>
       </div>
     </nav>

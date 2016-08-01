@@ -20,7 +20,7 @@ export default class AppContainer extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar title="Song Share"/>
         <OptionBar />
         <SongModal />
         <SongWrapper />
