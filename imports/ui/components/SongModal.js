@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const SongModal = (props) => {
-  const { onSubmit, onArtistChange, onDescriptionChange, 
+  const { onSubmit, onArtistChange, onDescriptionChange,
           onURLChange, artist, description, URL } = props;
   return (
     <div id="modal1" className="modal">
@@ -57,7 +57,13 @@ const SongModal = (props) => {
 }
 
 SongModal.PropTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onArtistChange: PropTypes.func.isRequired,
+  onDescriptionChange: PropTypes.func.isRequired,
+  onURLChange: PropTypes.func.isRequired,
+  artist: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  URL: PropTypes.string.isRequired
 }
 
 module.exports = SongModal;

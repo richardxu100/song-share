@@ -71,7 +71,7 @@ export default class AppContainer extends Component {
           description={this.state.description}
           URL={this.state.URL}
         />
-        <SongWrapper />
+        <SongWrapper songs={this.props.songs} />
       </div>
     )
   }
