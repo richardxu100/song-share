@@ -39,7 +39,7 @@ const SongModal = (props) => {
                   onChange={onURLChange}
                   value={URL}
                 />
-                <label htmlFor="music_link">Song URL</label>
+                <label htmlFor="music_link">Embed URL (Youtube, embed link)</label>
               </div>
             </div>
             <button
