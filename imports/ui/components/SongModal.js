@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 
 const SongModal = (props) => {
+  const { onSubmit, onArtistChange, onDescriptionChange, 
+          onURLChange, artist, description, URL } = props;
   return (
     <div id="modal1" className="modal">
       <div className="modal-content">
@@ -10,23 +12,43 @@ const SongModal = (props) => {
             <div className="row">
               <div className="input-field col s6">
                 <i className="material-icons prefix">person_pin</i>
-                <input id="icon_prefix" type="text" className="validate" />
+                <input
+                  type="text"
+                  className="validate"
+                  onChange={onArtistChange}
+                  value={artist}
+                />
                 <label htmlFor="icon_prefix">Artist Name</label>
               </div>
               <div className="input-field col s6">
                 <i className="material-icons prefix">mode_edit</i>
-                <input id="icon_telephone" type="tel" className="validate" />
+                <input
+                  type="text"
+                  className="validate"
+                  onChange={onDescriptionChange}
+                  value={description}
+                />
                 <label htmlFor="icon_telephone">Description</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12">
                 <i className="material-icons prefix">library_music</i>
-                <input type="text" />
+                <input
+                  type="text"
+                  onChange={onURLChange}
+                  value={URL}
+                />
                 <label htmlFor="music_link">Song URL</label>
               </div>
             </div>
-            <button href="#!" className="right modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</button>
+            <button
+              href="#!"
+              className="right modal-action modal-close waves-effect waves-green btn-flat"
+              type="submit"
+              onClick={onSubmit}>
+              Add
+            </button>
           </form>
         </div>
       </div>
@@ -35,7 +57,7 @@ const SongModal = (props) => {
 }
 
 SongModal.PropTypes = {
-
+  onSubmit: PropTypes.func.isRequired
 }
 
 module.exports = SongModal;
