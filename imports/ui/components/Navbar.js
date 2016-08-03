@@ -6,7 +6,8 @@ import Blaze from 'meteor/gadicc:blaze-react-component';
 export default class Navbar extends Component {
 
   handleLogout = () => {
-    Meteor.logout()
+    // Meteor.logout();
+    AccountsTemplates.logout();
     console.log('We should have logged out');
   }
 

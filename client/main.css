@@ -21,6 +21,9 @@
   color: black !important;
 }
 
+button.modal-action {
+  color: white;
+}
 /*#nav-mobile > li {
   margin-right: 150px;
 }*/
