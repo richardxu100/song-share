@@ -9,7 +9,7 @@ const SongWrapper = (props) => {
     : <div className="song wrapper">
         <div className="row">
           {songs.map((song, i) => {
-            const { URL, artist, description, submitter, profileImageLink } = song;
+            const { URL, artist, description, submitter } = song;
             return (
               <div className="col s12 m6 l6" key={i}>
                 <VideoContainer URL={URL}/>
@@ -17,7 +17,6 @@ const SongWrapper = (props) => {
                   artist={artist}
                   description={description}
                   submitter={submitter}
-                  profileImageLink={profileImageLink}
                   currentUser={props.currentUser}
                 />
               </div>
