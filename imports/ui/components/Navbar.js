@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import LoginModal from './loginModal';
 import { Meteor } from 'meteor/meteor';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 

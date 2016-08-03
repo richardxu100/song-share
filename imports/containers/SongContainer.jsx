@@ -29,7 +29,8 @@ export default class SongContainer extends Component {
     const artist = this.state.artist;
     const description = this.state.description;
     const URL = this.state.URL;
-    Songs.insert({ artist, description, URL });
+    const submitter = Meteor.userId();
+    Songs.insert({ artist, description, URL, submitter });
     this.setState({
       artist: '',
       description: '',
@@ -75,7 +76,9 @@ export default class SongContainer extends Component {
           description={this.state.description}
           URL={this.state.URL}
         />
-        <SongWrapper songs={this.props.songs} />
+        <SongWrapper
+          songs={this.props.songs}
+        />
       </div>
     )
   }
