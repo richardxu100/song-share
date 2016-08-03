@@ -9,9 +9,9 @@ const LoginModal = (props) => {
         <div className="modal-content">
           <Blaze template="atForm"/>
         </div>
-        <div className="modal-footer">
+        {/* <div className="modal-footer">
           <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Log-In</a>
-        </div>
+        </div> */}
       </div>
     </div>
   )

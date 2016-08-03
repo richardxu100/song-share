@@ -21,7 +21,8 @@ export default class Navbar extends Component {
               {this.props.currentUser
                 ? <a
                    className="waves-effect waves-light btn"
-                   onClick={this.handleLogout}>Log-Out</a>
+                   onClick={this.handleLogout}
+                   href="#!">Log-Out</a>
                 : <a
                    className="waves-effect waves-light btn modal-trigger"
                    href="#modal2">Log-In</a>

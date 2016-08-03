@@ -25,3 +25,5 @@ gadicc:blaze-react-component
 accounts-base
 useraccounts:unstyled
 accounts-password
+
+aldeed:template-extension
