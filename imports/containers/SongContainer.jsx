@@ -3,13 +3,14 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import 'materialize-css/bin/materialize.css';
 import 'materialize-css/bin/materialize.js';
-import Navbar from '../ui/components/navbar';
+import Navbar from '../ui/components/Navbar';
+import LoginModal from '../ui/components/loginModal';
 import SongModal from '../ui/components/songModal';
 import SongWrapper from '../ui/components/songWrapper';
 import OptionBar from '../ui/components/optionBar';
 import { Songs } from '../api/songs';
 
-export default class AppContainer extends Component {
+export default class SongContainer extends Component {
   static propTypes = {
     songs: PropTypes.array.isRequired
   }
@@ -60,8 +61,11 @@ export default class AppContainer extends Component {
   render() {
     return (
       <div>
-        <Navbar title="Song Share"/>
+        <Navbar
+          title="Song Share"
+          currentUser={this.props.currentUser} />
         <OptionBar />
+        <LoginModal />
         <SongModal
           onSubmit={this.handleSubmit}
           onArtistChange={this.handleArtistChange}
@@ -80,6 +84,7 @@ export default class AppContainer extends Component {
 export default createContainer(() => {
   Meteor.subscribe('songs');
   return {
-    songs: Songs.find({}).fetch()
+    songs: Songs.find({}).fetch(),
+    currentUser: Meteor.user()
   }
-}, AppContainer);
+}, SongContainer);
