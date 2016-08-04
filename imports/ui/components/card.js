@@ -23,12 +23,12 @@ export default class Card extends Component {
   }
 
   render() {
-    const { artist, description, submitter, onDeleteSong, URL } = this.props;
+    const { artist, description, submitter, onDeleteSong, url } = this.props;
     const profileImageLink = Meteor.users.findOne({ _id: `${submitter}` }) && Meteor.users.findOne({ _id: `${submitter}` }).profile.profileImageLink;
     return (
       <div className="col s12 m6 l6">
 
-        <VideoContainer URL={URL}/>
+        <VideoContainer url={url}/>
 
         <div className="card">
           <div className="card-content">

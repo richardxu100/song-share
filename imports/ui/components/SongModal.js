@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const SongModal = (props) => {
   const { onSubmit, onArtistChange, onDescriptionChange,
-          onURLChange, artist, description, URL } = props;
+          onUrlChange, artist, description, url } = props;
   return (
     <div id="modal1" className="modal">
       <div className="modal-content">
@@ -36,8 +36,8 @@ const SongModal = (props) => {
                 <i className="material-icons prefix">library_music</i>
                 <input
                   type="text"
-                  onChange={onURLChange}
-                  value={URL}
+                  onChange={onUrlChange}
+                  value={url}
                 />
                 <label htmlFor="music_link">Embed URL (Youtube, embed link)</label>
               </div>
@@ -60,10 +60,10 @@ SongModal.PropTypes = {
   onSubmit: PropTypes.func.isRequired,
   onArtistChange: PropTypes.func.isRequired,
   onDescriptionChange: PropTypes.func.isRequired,
-  onURLChange: PropTypes.func.isRequired,
+  onUrlChange: PropTypes.func.isRequired,
   artist: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  URL: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired
 }
 
 module.exports = SongModal;

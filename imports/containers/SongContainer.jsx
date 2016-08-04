@@ -20,7 +20,7 @@ export default class SongContainer extends Component {
     this.state = {
       artist: '',
       description: '',
-      URL: '',
+      url: '',
       privacyFilter: false
     }
   }
@@ -29,15 +29,15 @@ export default class SongContainer extends Component {
     event.preventDefault();
     const artist = this.state.artist;
     const description = this.state.description;
-    const URL = this.state.URL;
+    const url = this.state.url;
     const submitter = Meteor.userId();
     let isPrivate = false;
     const createdAt = new Date();
-    Songs.insert({ artist, description, URL, submitter, isPrivate, createdAt });
+    Songs.insert({ artist, description, url, submitter, isPrivate, createdAt });
     this.setState({
       artist: '',
       description: '',
-      URL: ''
+      url: ''
     });
   }
 
@@ -53,36 +53,66 @@ export default class SongContainer extends Component {
     });
   }
 
-  handleURLChange = (event) => {
+  handleUrlChange = (event) => {
     this.setState({
-      URL: event.target.value
+      url: event.target.value
     });
   }
 
   toggleAllPrivacy = () => {
-    console.log('toggleAllPrivacy wired right');
+    console.log(this.state.privacyFilter);
     this.setState({
       privacyFilter: !this.state.privacyFilter
     });
   }
 
+  // renderSongs = () => { // probably will need to debug a lot
+  //   if (this.props.currentUser) { // if Meteor has started up
+  //     let songs = this.props.songs;
+  //     // if the song is private and you're not the owner, filter out that song
+  //     let filteredSongs = songs.map((song) => {
+  //       // if the privacyFilter is set to false
+  //       debugger;
+  //       if (!this.state.privacyFilter) {
+  //         if (song.isPrivate === false || song.submitter === this.props.currentUser._id) {
+  //           return song;
+  //         }
+  //       }
+  //       else { // privacyFilter is set to true
+  //         if (song.isPrivate === true && song.submitter === this.props.currentUser._id) {
+  //           return song;
+  //         }
+  //       }
+  //     });
+  //     return filteredSongs;
+  //   }
+  //   else {
+  //     return [];
+  //   }
+  // }
+
   renderSongs = () => { // probably will need to debug a lot
-    if (this.props.currentUser) {
+    if (this.props.currentUser) { // if Meteor has started up
       let songs = this.props.songs;
       // if the song is private and you're not the owner, filter out that song
-      let filteredSongs = songs.map((song) => {
-        if (song.isPrivate === false ||
-            song.submitter === this.props.currentUser._id) {
+      let filteredSongs = songs.filter(song => { // map and filter are super similar, though map will return null objects so beware. Filter will 'filter' them out
+        // if the privacyFilter is set to false
+        if (!this.state.privacyFilter) {
+          if (song.isPrivate === false || song.submitter === this.props.currentUser._id) {
             return song;
+          }
+        }
+        else { // privacyFilter is set to true
+          if (song.isPrivate === true && song.submitter === this.props.currentUser._id) {
+            return song;
+          }
         }
       });
       return filteredSongs;
-    } else {
+    }
+    else {
       return [];
     }
-    // if (this.state.privacyFilter) {
-    //   filteredSongs.filter(song => !(song.isPrivate)
-    // }
   }
 
   render() {
@@ -98,10 +128,10 @@ export default class SongContainer extends Component {
           onSubmit={this.handleSubmit}
           onArtistChange={this.handleArtistChange}
           onDescriptionChange={this.handleDescriptionChange}
-          onURLChange={this.handleURLChange}
+          onUrlChange={this.handleUrlChange}
           artist={this.state.artist}
           description={this.state.description}
-          URL={this.state.URL}
+          url={this.state.url}
         />
         <SongWrapper
           songs={this.renderSongs()}
