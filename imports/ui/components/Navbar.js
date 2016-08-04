@@ -13,10 +13,10 @@ export default class Navbar extends Component {
   }
 
   render() {
-    console.log(Meteor.user() ? 'Meteor.user() is truthy' : 'Meteor.user() is falsy')
+    // console.log(Meteor.user() ? 'Meteor.user() is truthy' : 'Meteor.user() is falsy')
     return (
       <nav>
-        <div className="nav-wrapper">
+        <div className="indigo nav-wrapper">
           <a href="#" className="brand-logo center">{this.props.title}</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>

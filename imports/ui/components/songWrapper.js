@@ -28,7 +28,7 @@ const SongWrapper = (props) => {
         </div>
         <div className="fixed-action-btn" style={{bottom: '55px', right: '44px'}}>
           <a
-            className="modal-trigger btn-floating waves-effect waves-light btn-large red"
+            className="teal modal-trigger btn-floating waves-effect waves-light btn-large red"
             href="#modal1">
             <i className="large material-icons">add</i>
           </a>
