@@ -122,7 +122,8 @@ export default class SongContainer extends Component {
           title="Song Share"
           currentUser={this.props.currentUser} />
         <OptionBar
-          toggleAllPrivacy={this.toggleAllPrivacy}/>
+          toggleAllPrivacy={this.toggleAllPrivacy}
+          checked={this.state.privacyFilter}/>
         <LoginModal />
         <SongModal
           onSubmit={this.handleSubmit}

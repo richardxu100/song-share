@@ -49,9 +49,10 @@ export default class Card extends Component {
               {Meteor.users.findOne({ _id: `${submitter}` }) &&
                Meteor.users.findOne({ _id: `${submitter}` }).profile.firstName}
             </div>
-          <Switch
-            togglePrivacy={this.togglePrivacy}
-          />
+            <Switch
+              togglePrivacy={this.togglePrivacy}
+              checked={this.props.checked}
+            />
           </div>
         </div>
       </div>

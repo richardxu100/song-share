@@ -10,7 +10,7 @@ const SongWrapper = (props) => {
         <div className="row">
           {songs && songs.map((song) => {
             // debugger;
-            const { url, artist, description, submitter } = song;
+            const { url, artist, description, submitter, isPrivate } = song;
             return (
               <Card
                 song={song}
@@ -21,6 +21,7 @@ const SongWrapper = (props) => {
                 // onDeleteSong={props.onDeleteSong}
                 key={song._id}
                 url={url}
+                checked={isPrivate}
               />
             )
           })}

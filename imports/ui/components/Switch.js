@@ -7,7 +7,8 @@ const Switch = (props) => {
         Public
         <input
           type="checkbox"
-          onChange={props.togglePrivacy} />
+          onChange={props.togglePrivacy}
+          checked={props.checked}/>
         <span className="lever"></span>
         Private
       </label>
@@ -16,7 +17,8 @@ const Switch = (props) => {
 }
 
 Switch.PropTypes = {
-  togglePrivacy: PropTypes.func
+  togglePrivacy: PropTypes.func,
+  checked: PropTypes.bool.isRequired
 }
 
 module.exports = Switch;
