@@ -20,7 +20,8 @@ export default class SongContainer extends Component {
     this.state = {
       artist: '',
       description: '',
-      URL: ''
+      URL: '',
+      privacyFilter: false
     }
   }
 
@@ -30,9 +31,9 @@ export default class SongContainer extends Component {
     const description = this.state.description;
     const URL = this.state.URL;
     const submitter = Meteor.userId();
-    const privacy = 'public';
+    let isPrivate = false;
     const createdAt = new Date();
-    Songs.insert({ artist, description, URL, submitter, privacy, createdAt });
+    Songs.insert({ artist, description, URL, submitter, isPrivate, createdAt });
     this.setState({
       artist: '',
       description: '',
@@ -58,9 +59,26 @@ export default class SongContainer extends Component {
     });
   }
 
-  handleDeleteSong = (event) => {
-    console.log(this);
-    console.log(event);
+  toggleAllPrivacy = () => {
+    console.log('toggleAllPrivacy wired right');
+    this.setState({
+      privacyFilter: !this.state.privacyFilter
+    });
+  }
+
+  renderSongs = () => { // probably will need to debug a lot
+    let songs = this.props.songs;
+    // if the song is private and you're not the owner, filter out that song
+    let filteredSongs = songs.map((song) => {
+      if (song.isPrivate === false ||
+          song.submitter === this.props.currentUser._id) {
+          return song;
+      }
+    });
+    return filteredSongs;
+    // if (this.state.privacyFilter) {
+    //   filteredSongs.filter(song => !(song.isPrivate)
+    // }
   }
 
   render() {
@@ -69,7 +87,8 @@ export default class SongContainer extends Component {
         <Navbar
           title="Song Share"
           currentUser={this.props.currentUser} />
-        <OptionBar />
+        <OptionBar
+          toggleAllPrivacy={this.toggleAllPrivacy}/>
         <LoginModal />
         <SongModal
           onSubmit={this.handleSubmit}
@@ -81,8 +100,7 @@ export default class SongContainer extends Component {
           URL={this.state.URL}
         />
         <SongWrapper
-          songs={this.props.songs}
-          // onDeleteSong={this.handleDeleteSong}
+          songs={this.renderSongs()}
         />
       </div>
     )

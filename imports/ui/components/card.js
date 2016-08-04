@@ -8,18 +8,17 @@ export default class Card extends Component {
 
   handleDeleteSong = (event) => {
     event.preventDefault();
-    console.log(this);
     const song_id = this.props.song._id;
     Songs.remove(song_id);
   }
 
   togglePrivacy = () => {
     const song_id = this.props.song._id;
-    const song_privacy = Songs.findOne({_id: this.props.song._id}).privacy;
-    if (song_privacy === 'public') {
-      Songs.update({_id: song_id}, {$set: {privacy: 'private'}})
+    const song_privacy = Songs.findOne({_id: this.props.song._id}).isPrivate;
+    if (song_privacy === false) {
+      Songs.update({_id: song_id}, {$set: {isPrivate: true}})
     } else {
-      Songs.update({_id: song_id}, {$set: {privacy: 'public'}})
+      Songs.update({_id: song_id}, {$set: {isPrivate: false}})
     }
   }
 
