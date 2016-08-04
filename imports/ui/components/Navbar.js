@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
+// import { Link } from 'react-router';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 
 export default class Navbar extends Component {
 
-  handleLogout = () => {
+  handleLogout = (event) => {
     // Meteor.logout();
+    event.preventDefault();
     AccountsTemplates.logout();
     console.log('We should have logged out');
   }

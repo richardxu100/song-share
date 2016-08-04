@@ -67,15 +67,19 @@ export default class SongContainer extends Component {
   }
 
   renderSongs = () => { // probably will need to debug a lot
-    let songs = this.props.songs;
-    // if the song is private and you're not the owner, filter out that song
-    let filteredSongs = songs.map((song) => {
-      if (song.isPrivate === false ||
-          song.submitter === this.props.currentUser._id) {
-          return song;
-      }
-    });
-    return filteredSongs;
+    if (this.props.currentUser) {
+      let songs = this.props.songs;
+      // if the song is private and you're not the owner, filter out that song
+      let filteredSongs = songs.map((song) => {
+        if (song.isPrivate === false ||
+            song.submitter === this.props.currentUser._id) {
+            return song;
+        }
+      });
+      return filteredSongs;
+    } else {
+      return [];
+    }
     // if (this.state.privacyFilter) {
     //   filteredSongs.filter(song => !(song.isPrivate)
     // }
