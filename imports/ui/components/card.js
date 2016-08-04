@@ -13,6 +13,16 @@ export default class Card extends Component {
     Songs.remove(song_id);
   }
 
+  togglePrivacy = () => {
+    const song_id = this.props.song._id;
+    const song_privacy = Songs.findOne({_id: this.props.song._id}).privacy;
+    if (song_privacy === 'public') {
+      Songs.update({_id: song_id}, {$set: {privacy: 'private'}})
+    } else {
+      Songs.update({_id: song_id}, {$set: {privacy: 'public'}})
+    }
+  }
+
   render() {
     const { artist, description, submitter, onDeleteSong, URL } = this.props;
     const profileImageLink = Meteor.users.findOne({ _id: `${submitter}` }) && Meteor.users.findOne({ _id: `${submitter}` }).profile.profileImageLink;
@@ -37,10 +47,12 @@ export default class Card extends Component {
           <div className="center-align card-action">
             <div className="right-align chip">
               <img src={profileImageLink} alt="Profile Image" />
-                { Meteor.users.findOne({ _id: `${submitter}` }) &&
-                  Meteor.users.findOne({ _id: `${submitter}` }).profile.firstName}
+              {Meteor.users.findOne({ _id: `${submitter}` }) &&
+               Meteor.users.findOne({ _id: `${submitter}` }).profile.firstName}
             </div>
-          <Switch />
+          <Switch
+            togglePrivacy={this.togglePrivacy}
+          />
           </div>
         </div>
       </div>
