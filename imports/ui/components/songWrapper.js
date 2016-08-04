@@ -18,6 +18,7 @@ const SongWrapper = (props) => {
                   description={description}
                   submitter={submitter}
                   currentUser={props.currentUser}
+                  onDeleteSong={props.onDeleteSong}
                 />
               </div>
             )

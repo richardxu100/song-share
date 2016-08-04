@@ -44,7 +44,7 @@ const SongModal = (props) => {
             </div>
             <button
               href="#!"
-              className="right modal-action modal-close waves-effect waves-green btn-flat"
+              className="right modal-action modal-close waves-effect waves-green text-white btn-flat"
               type="submit"
               onClick={onSubmit}>
               Add

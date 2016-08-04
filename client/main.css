@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 .row {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   max-width: 80vw;
-  padding: 20px;
+  padding: 10px;
 }
 
 .center-align > a.btn.modal-trigger {
@@ -11,6 +11,7 @@
 
 .card {
   margin-top: 0;
+  /*margin: 20px;*/
 }
 
 .chip {
@@ -21,9 +22,24 @@
   color: black !important;
 }
 
-button.modal-action {
-  color: white;
+button.waves-effect.red.lighten-1.waves-light.btn-flat.white-text {
+  margin-left: 10px;
+  margin-top: -5px;
 }
+
+.col.s12.m6.l6 {
+  padding: 20px;
+}
+
+nav + .center-align {
+  margin-top: 15px;
+}
+/*#video_card {
+  margin: 10px;
+}*/
+/*button.modal-action {
+  color: white;
+}*/
 /*#nav-mobile > li {
   margin-right: 150px;
 }*/

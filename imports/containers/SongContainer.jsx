@@ -30,7 +30,9 @@ export default class SongContainer extends Component {
     const description = this.state.description;
     const URL = this.state.URL;
     const submitter = Meteor.userId();
-    Songs.insert({ artist, description, URL, submitter });
+    const privacy = 'public';
+    const createdAt = new Date();
+    Songs.insert({ artist, description, URL, submitter, privacy, createdAt });
     this.setState({
       artist: '',
       description: '',
@@ -39,24 +41,26 @@ export default class SongContainer extends Component {
   }
 
   handleArtistChange = (event) => {
-    // event.preventDefault();
     this.setState({
       artist: event.target.value
     });
   }
 
   handleDescriptionChange = (event) => {
-    // event.preventDefault();
     this.setState({
       description: event.target.value
     });
   }
 
   handleURLChange = (event) => {
-    // event.preventDefault();
     this.setState({
       URL: event.target.value
     });
+  }
+
+  handleDeleteSong = (event) => {
+    console.log(this);
+    console.log(event);
   }
 
   render() {
@@ -78,6 +82,7 @@ export default class SongContainer extends Component {
         />
         <SongWrapper
           songs={this.props.songs}
+          onDeleteSong={this.handleDeleteSong}
         />
       </div>
     )
@@ -87,7 +92,7 @@ export default class SongContainer extends Component {
 export default createContainer(() => {
   Meteor.subscribe('songs');
   return {
-    songs: Songs.find({}).fetch(),
+    songs: Songs.find({}, { sort: { createdAt: -1 } }).fetch(),
     currentUser: Meteor.user()
   }
 }, SongContainer);
