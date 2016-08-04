@@ -4,8 +4,9 @@ import Blaze from 'meteor/gadicc:blaze-react-component';
 
 export default class Navbar extends Component {
 
-  handleLogout = () => {
+  handleLogout = (event) => {
     // Meteor.logout();
+    event.preventDefault();
     AccountsTemplates.logout();
     console.log('We should have logged out');
   }
@@ -22,7 +23,7 @@ export default class Navbar extends Component {
                 ? <a
                    className="waves-effect waves-light btn"
                    onClick={this.handleLogout}
-                   href="#!">Log-Out</a>
+                   href="/">Log-Out</a>
                 : <a
                    className="waves-effect waves-light btn modal-trigger"
                    href="#modal2">Log-In</a>
