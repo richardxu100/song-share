@@ -82,7 +82,7 @@ export default class SongContainer extends Component {
         />
         <SongWrapper
           songs={this.props.songs}
-          onDeleteSong={this.handleDeleteSong}
+          // onDeleteSong={this.handleDeleteSong}
         />
       </div>
     )

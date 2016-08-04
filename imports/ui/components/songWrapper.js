@@ -8,19 +8,19 @@ const SongWrapper = (props) => {
     ? <p>Loading</p>
     : <div className="song wrapper">
         <div className="row">
-          {songs.map((song, i) => {
+          {songs.map((song) => {
             const { URL, artist, description, submitter } = song;
             return (
-              <div className="col s12 m6 l6" key={i}>
-                <VideoContainer URL={URL}/>
-                <Card
-                  artist={artist}
-                  description={description}
-                  submitter={submitter}
-                  currentUser={props.currentUser}
-                  onDeleteSong={props.onDeleteSong}
-                />
-              </div>
+              <Card
+                song={song}
+                artist={artist}
+                description={description}
+                submitter={submitter}
+                currentUser={props.currentUser}
+                // onDeleteSong={props.onDeleteSong}
+                key={song._id}
+                URL={URL}
+              />
             )
           })}
         </div>
