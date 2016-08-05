@@ -1,6 +1,5 @@
 /* CSS declarations go here */
 .row {
-  /*margin-top: 20px;*/
   max-width: 80vw;
   padding: 10px;
 }
@@ -11,7 +10,6 @@
 
 .card {
   margin-top: 0;
-  /*margin: 20px;*/
 }
 
 .chip {
@@ -34,20 +32,3 @@ button.waves-effect.red.lighten-1.waves-light.btn-flat.white-text {
 nav + .center-align {
   margin-top: 15px;
 }
-/*#video_card {
-  margin: 10px;
-}*/
-/*button.modal-action {
-  color: white;
-}*/
-/*#nav-mobile > li {
-  margin-right: 150px;
-}*/
-
-/*div#login-buttons {
-  color: black !important;
-}
-
-nav ul a {
-  color: black;
-}*/

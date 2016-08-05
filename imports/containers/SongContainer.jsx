@@ -66,31 +66,6 @@ export default class SongContainer extends Component {
     });
   }
 
-  // renderSongs = () => { // probably will need to debug a lot
-  //   if (this.props.currentUser) { // if Meteor has started up
-  //     let songs = this.props.songs;
-  //     // if the song is private and you're not the owner, filter out that song
-  //     let filteredSongs = songs.map((song) => {
-  //       // if the privacyFilter is set to false
-  //       debugger;
-  //       if (!this.state.privacyFilter) {
-  //         if (song.isPrivate === false || song.submitter === this.props.currentUser._id) {
-  //           return song;
-  //         }
-  //       }
-  //       else { // privacyFilter is set to true
-  //         if (song.isPrivate === true && song.submitter === this.props.currentUser._id) {
-  //           return song;
-  //         }
-  //       }
-  //     });
-  //     return filteredSongs;
-  //   }
-  //   else {
-  //     return [];
-  //   }
-  // }
-
   renderSongs = () => { // probably will need to debug a lot
     if (this.props.currentUser) { // if Meteor has started up
       let songs = this.props.songs;

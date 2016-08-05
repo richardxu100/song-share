@@ -5,6 +5,11 @@ import { Meteor } from 'meteor/meteor';
 import { Songs } from '../../api/songs';
 
 export default class Card extends Component {
+  static propTypes = {
+    artist: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    submitter: PropTypes.string.isRequired
+  }
 
   handleDeleteSong = (event) => {
     event.preventDefault();
@@ -62,11 +67,3 @@ export default class Card extends Component {
     )
   }
 }
-
-Card.PropTypes = {
-  artist: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  submitter: PropTypes.string.isRequired
-}
-
-module.exports = Card;

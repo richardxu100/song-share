@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-// import { Link } from 'react-router';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 
 export default class Navbar extends Component {
 
   handleLogout = (event) => {
-    // Meteor.logout();
     event.preventDefault();
     AccountsTemplates.logout();
     console.log('We should have logged out');
   }
 
   render() {
-    // console.log(Meteor.user() ? 'Meteor.user() is truthy' : 'Meteor.user() is falsy')
     return (
       <nav>
         <div className="indigo nav-wrapper">
@@ -29,7 +26,6 @@ export default class Navbar extends Component {
                    className="waves-effect waves-light btn modal-trigger"
                    href="#modal2">Log-In</a>
               }
-              {/* {this.userId ? <p>Statement's true</p> : <p>Statement's false</p>} */}
             </li>
           </ul>
         </div>
