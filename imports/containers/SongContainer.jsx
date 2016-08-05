@@ -66,31 +66,6 @@ export default class SongContainer extends Component {
     });
   }
 
-  // renderSongs = () => { // probably will need to debug a lot
-  //   if (this.props.currentUser) { // if Meteor has started up
-  //     let songs = this.props.songs;
-  //     // if the song is private and you're not the owner, filter out that song
-  //     let filteredSongs = songs.map((song) => {
-  //       // if the privacyFilter is set to false
-  //       debugger;
-  //       if (!this.state.privacyFilter) {
-  //         if (song.isPrivate === false || song.submitter === this.props.currentUser._id) {
-  //           return song;
-  //         }
-  //       }
-  //       else { // privacyFilter is set to true
-  //         if (song.isPrivate === true && song.submitter === this.props.currentUser._id) {
-  //           return song;
-  //         }
-  //       }
-  //     });
-  //     return filteredSongs;
-  //   }
-  //   else {
-  //     return [];
-  //   }
-  // }
-
   renderSongs = () => { // probably will need to debug a lot
     if (this.props.currentUser) { // if Meteor has started up
       let songs = this.props.songs;
@@ -123,7 +98,7 @@ export default class SongContainer extends Component {
           currentUser={this.props.currentUser} />
         <OptionBar
           toggleAllPrivacy={this.toggleAllPrivacy}
-          checked={this.state.privacyFilter}/>
+          checked={this.state.privacyFilter} />
         <LoginModal />
         <SongModal
           onSubmit={this.handleSubmit}
@@ -132,11 +107,9 @@ export default class SongContainer extends Component {
           onUrlChange={this.handleUrlChange}
           artist={this.state.artist}
           description={this.state.description}
-          url={this.state.url}
-        />
+          url={this.state.url} />
         <SongWrapper
-          songs={this.renderSongs()}
-        />
+          songs={this.renderSongs()} />
       </div>
     )
   }
