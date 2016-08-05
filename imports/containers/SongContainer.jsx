@@ -98,7 +98,7 @@ export default class SongContainer extends Component {
           currentUser={this.props.currentUser} />
         <OptionBar
           toggleAllPrivacy={this.toggleAllPrivacy}
-          checked={this.state.privacyFilter}/>
+          checked={this.state.privacyFilter} />
         <LoginModal />
         <SongModal
           onSubmit={this.handleSubmit}
@@ -107,11 +107,9 @@ export default class SongContainer extends Component {
           onUrlChange={this.handleUrlChange}
           artist={this.state.artist}
           description={this.state.description}
-          url={this.state.url}
-        />
+          url={this.state.url} />
         <SongWrapper
-          songs={this.renderSongs()}
-        />
+          songs={this.renderSongs()} />
       </div>
     )
   }
