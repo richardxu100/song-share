@@ -35,7 +35,7 @@ export default class Card extends Component {
 
         <VideoContainer url={url}/>
 
-        <div className="card">
+        <div className="z-depth-2 card">
           <div className="card-content">
             <span className="card-title">{artist}</span>
             {Meteor.userId() === submitter
