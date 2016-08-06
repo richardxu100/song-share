@@ -4,6 +4,22 @@ import { check } from 'meteor/check';
 
 export const Songs = new Mongo.Collection('songs');
 
+if (Meteor.isServer) {
+  Meteor.publish('songs', () => {
+    return Songs.find({
+      $or: [
+        { isPrivate: { $ne: true }},
+        { submitter: this.userId }
+      ]
+    })
+  });
+
+  Meteor.publish('usersData', () => {
+    return Meteor.users.find();
+    console.log(Meteor.users.find().fetch());
+  });
+}
+
 Meteor.methods({
   'songs.insert'(artist, description, url,
                  submitter, isPrivate, createdAt) {

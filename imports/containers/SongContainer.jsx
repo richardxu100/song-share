@@ -117,6 +117,7 @@ export default class SongContainer extends Component {
 
 export default createContainer(() => {
   Meteor.subscribe('songs');
+  Meteor.subscribe('usersData');
   return {
     songs: Songs.find({}, { sort: { createdAt: -1 } }).fetch(),
     currentUser: Meteor.user()
