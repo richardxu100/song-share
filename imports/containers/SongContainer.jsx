@@ -33,7 +33,7 @@ export default class SongContainer extends Component {
     const submitter = Meteor.userId();
     let isPrivate = false;
     const createdAt = new Date();
-    Songs.insert({ artist, description, url, submitter, isPrivate, createdAt });
+    Meteor.call('songs.insert', artist, description, url, submitter, isPrivate, createdAt);
     this.setState({
       artist: '',
       description: '',

@@ -14,16 +14,18 @@ export default class Card extends Component {
   handleDeleteSong = (event) => {
     event.preventDefault();
     const song_id = this.props.song._id;
-    Songs.remove(song_id);
+    Meteor.call('songs.delete', song_id);
   }
 
   togglePrivacy = () => {
     const song_id = this.props.song._id;
     const song_privacy = Songs.findOne({_id: this.props.song._id}).isPrivate;
     if (song_privacy === false) {
-      Songs.update({_id: song_id}, {$set: {isPrivate: true}})
+      // Songs.update({_id: song_id}, {$set: {isPrivate: true}})
+      Meteor.call('songs.togglePrivate', song_id, true);
     } else {
-      Songs.update({_id: song_id}, {$set: {isPrivate: false}})
+      // Songs.update({_id: song_id}, {$set: {isPrivate: false}})
+      Meteor.call('songs.togglePrivate', song_id, false);
     }
   }
 
