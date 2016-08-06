@@ -34,6 +34,7 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
+
     Songs.insert({ artist, description, url, submitter, isPrivate, createdAt });
   },
   'songs.delete'(song_id) {

@@ -17,6 +17,8 @@ const SongModal = (props) => {
                   className="validate"
                   onChange={onArtistChange}
                   value={artist}
+                  required=""
+                  aria-required="true"
                 />
                 <label htmlFor="icon_prefix">Artist Name</label>
               </div>
@@ -27,6 +29,8 @@ const SongModal = (props) => {
                   className="validate"
                   onChange={onDescriptionChange}
                   value={description}
+                  required=""
+                  aria-required="true"
                 />
                 <label htmlFor="icon_telephone">Description</label>
               </div>
@@ -38,6 +42,9 @@ const SongModal = (props) => {
                   type="text"
                   onChange={onUrlChange}
                   value={url}
+                  required=""
+                  aria-required="true"
+                  className="validate"
                 />
                 <label htmlFor="music_link">Embed URL (Youtube, embed link)</label>
               </div>
