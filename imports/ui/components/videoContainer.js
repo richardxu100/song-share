@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const VideoContainer = (props) => {
+const VideoContainer = ({ url }) => {
   return (
     <div className="z-depth-2 video-container">
-      <iframe src={props.url} frameBorder="0" allowFullScreen></iframe>
+      <iframe src={url} frameBorder="0" allowFullScreen></iframe>
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 
-const Switch = (props) => {
+const Switch = ({ togglePrivacy, checked }) => {
   return (
     <span className="switch">
       <label>
         Public
         <input
           type="checkbox"
-          onChange={props.togglePrivacy}
-          checked={props.checked}/>
+          onChange={togglePrivacy}
+          checked={checked}/>
         <span className="lever"></span>
         Private
       </label>

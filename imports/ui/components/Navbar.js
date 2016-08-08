@@ -11,13 +11,14 @@ export default class Navbar extends Component {
   }
 
   render() {
+    const { title, currentUser } = this.props;
     return (
       <nav>
         <div className="indigo nav-wrapper">
-          <a href="#" className="brand-logo center">{this.props.title}</a>
+          <a href="#" className="brand-logo center">{title}</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
-              {this.props.currentUser
+              {currentUser
                 ? <a
                    className="waves-effect waves-light btn"
                    onClick={this.handleLogout}

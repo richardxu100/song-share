@@ -1,8 +1,14 @@
 import React, { PropTypes } from 'react';
 
-const SongModal = (props) => {
-  const { onSubmit, onArtistChange, onDescriptionChange,
-          onUrlChange, artist, description, url } = props;
+const SongModal = ({
+  onSubmit,
+  onArtistChange,
+  onDescriptionChange,
+  onUrlChange,
+  artist,
+  description,
+  url
+}) => {
   return (
     <div id="modal1" className="modal">
       <div className="modal-content">
