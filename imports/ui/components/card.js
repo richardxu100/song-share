@@ -58,8 +58,8 @@ export default class Card extends Component {
             </div>
             {Meteor.userId() === submitter
               ? <Switch
-                 togglePrivacy={this.togglePrivacy}
-                 checked={this.props.checked}
+                  togglePrivacy={this.togglePrivacy}
+                  checked={this.props.checked}
                />
               : ''
             }

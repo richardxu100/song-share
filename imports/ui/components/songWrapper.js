@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import Card from './card';
 import VideoContainer from './videoContainer';
 
-const SongWrapper = (props) => {
-  const { songs } = props;
+const SongWrapper = ({ songs, currentUser }) => {
   return songs === []
     ? <p>Loading</p>
     : <div className="song wrapper">
@@ -16,7 +15,7 @@ const SongWrapper = (props) => {
                 artist={artist}
                 description={description}
                 submitter={submitter}
-                currentUser={props.currentUser}
+                currentUser={currentUser}
                 key={song._id}
                 url={url}
                 checked={isPrivate}

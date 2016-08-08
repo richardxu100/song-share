@@ -7,12 +7,13 @@ export const Songs = new Mongo.Collection('songs');
 if (Meteor.isServer) {
   Meteor.publish('songs', () => {
     return Songs.find({
-      $or: [
-        { isPrivate: { $ne: true }},
-        { submitter: this.userId }
-      ]
+      // $or: [
+      //   { isPrivate: { $ne: true }},
+      //   { submitter: this.userId }
+      // ]
     })
   });
+
 
   Meteor.publish('usersData', () => {
     return Meteor.users.find();

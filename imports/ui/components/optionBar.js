@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import Switch from './switch';
 
-const OptionBar = (props) => {
+const OptionBar = ({ toggleAllPrivacy }) => {
   return (
     <div className="center-align">
       <Switch
-        togglePrivacy={props.toggleAllPrivacy}
+        togglePrivacy={toggleAllPrivacy}
       />
     </div>
   )
